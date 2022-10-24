@@ -10,16 +10,31 @@ import { Observable } from 'rxjs';
 export class ApiWsService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+
   ) { }
+
+  private url = `https://api-nest2.herokuapp.com/api/chat/list-messages/`;
+
+  getMessegesLength(): Observable<Messege[]> {
+
+    // const url = `http://localhost:3000/api/messeges`;
+    const length = this.http.get<Messege[]>(this.url);
+    return length;
+
+  }
 
   getMesseges(
     limit: number = 20,
-    offset: number = 0,
+    page: number = 1,
   ): Observable<Messege[]> {
-    const url = 'https://api-nest2.herokuapp.com/api/chat/list-messages/?limit='+limit+'&offset='+offset;
-    console.log(url);
-    return this.http.get<Messege[]>(url);
+    const offset =(page - 1) * limit;
+    console.log('limit, page, offset', limit, page, offset);
+    // const url = `http://localhost:3000/api/messeges`;
+    const urlExten = this.url+'?limit='+limit+'&offset='+offset;
+    const resp = this.http.get<Messege[]>(urlExten);
+    console.log('Meseges', resp);
+    return resp;
   }
 
 }

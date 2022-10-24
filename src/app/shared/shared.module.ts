@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiWsService } from '../sevices/api-ws.service';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { PaginatePipe } from '../pipes/paginate.pipe';
+import { PaginateComponent } from './paginate/paginate.component';
 // import { MessegeComponent } from './messege/messege.component';
 
 
@@ -16,7 +17,8 @@ import { PaginatePipe } from '../pipes/paginate.pipe';
     FooterComponent,
     HeaderComponent,
     BodyComponent,
-    PaginatePipe
+    PaginatePipe,
+    PaginateComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { PaginatePipe } from '../pipes/paginate.pipe';
     FooterComponent,
     HeaderComponent,
     PaginatePipe,
+    PaginateComponent,
     BodyComponent
   ]
 })

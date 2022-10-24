@@ -40,18 +40,48 @@ export class BodyComponent implements OnInit {
   // ];
 
   ngOnInit(): void {
-    this.getMesseges();
+    this.getMesseges(this.limit, this.pageNumber);
+    this.getMessegesLength();
   }
 
-  limit: number = 20;
+  limit: number = 50;
   pageNumber: number = 1;
   pageOption: number[] = [10, 20, 50, 100];
+  length: number = 1;
 
-  getMesseges() {
+
+  getMessegesPage(page: number): void {
+    console.log('getMessegesPage()');
+    this.pageNumber = Number(page);
+    this.getMesseges(this.limit, this.pageNumber);
+  }
+
+  addPage(num:number){
+    
+    if (this.pageNumber >1 && num < 0)
+      this.pageNumber --;
+    
+    if (this.pageNumber < this.length && num > 0)
+      this.pageNumber ++;
+
+    this.getMesseges(this.limit, this.pageNumber);
+  }
+
+  getMessegesLength(): void {
+    console.log('getMessegesLength()');
+    this.apiWsMeseege.getMessegesLength()
+      .subscribe((resp: Messege[]) => {
+        this.length = Math.trunc( resp.length / this.limit ) + 1;
+        console.log('Meseeges', this.length);
+      })
+  }
+
+  getMesseges(limit: number = 10, page: number = 1): void {
     console.log('getMesseges()');
-    this.apiWsMeseege.getMesseges(this.limit, 0)
+    this.apiWsMeseege.getMesseges(this.limit, this.pageNumber)
       .subscribe((resp: Messege[]) => {
         this.meseeges = resp;
+        console.log('Meseeges', this.meseeges.length);
       })
   }
 
