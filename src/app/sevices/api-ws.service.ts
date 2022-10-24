@@ -16,7 +16,7 @@ export class ApiWsService {
   getMesseges(
     limit: number = 20,
     offset: number = 0,
-  ) {
+  ): Observable<Messege[]> {
     const url = 'https://api-nest2.herokuapp.com/api/chat/list-messages/?limit='+limit+'&offset='+offset;
     console.log(url);
     return this.http.get<Messege[]>(url);

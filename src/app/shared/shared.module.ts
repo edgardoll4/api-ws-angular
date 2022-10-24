@@ -5,6 +5,9 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiWsService } from '../sevices/api-ws.service';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { PaginatePipe } from '../pipes/paginate.pipe';
+// import { MessegeComponent } from './messege/messege.component';
 
 
 
@@ -12,16 +15,19 @@ import { ApiWsService } from '../sevices/api-ws.service';
   declarations: [
     FooterComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    PaginatePipe
   ],
   imports: [
     CommonModule,
     HttpClientModule,
+    MatPaginatorModule,
 
   ],
   exports: [
     FooterComponent,
     HeaderComponent,
+    PaginatePipe,
     BodyComponent
   ]
 })
