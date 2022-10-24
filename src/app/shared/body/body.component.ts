@@ -72,6 +72,12 @@ export class BodyComponent implements OnInit {
 
   }
 
+
+  selectOptionLimit(number: number): void {
+    this.limit = number;
+    this.getMesseges(this.limit, this.pageNumber);
+  }
+
   getMessegesLength(): void {
     console.log('getMessegesLength()');
     this.apiWsMeseege.getMessegesLength()
