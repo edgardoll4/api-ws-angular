@@ -1,0 +1,29 @@
+<div class="content" role="main">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id Mensaje</th>
+        <th scope="col">Ususario</th>
+        <th scope="col">Mensaje</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Fecha y hora</th>
+        <th scope="col">Payload</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let meseege of meseeges; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{meseege.id}}</td>
+        <td>{{meseege.name}}</td>
+        <td>{{meseege.text}}</td>
+        <td>{{meseege.from}}</td>
+        <td>{{meseege.timestamp}}</td>
+        <td>{{meseege.payload}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
