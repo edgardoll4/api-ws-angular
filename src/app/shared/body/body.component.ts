@@ -58,13 +58,18 @@ export class BodyComponent implements OnInit {
 
   addPage(num:number){
     
-    if (this.pageNumber >1 && num < 0)
+    if (this.pageNumber >1 && num < 0){
       this.pageNumber --;
-    
-    if (this.pageNumber < this.length && num > 0)
-      this.pageNumber ++;
+      this.getMesseges(this.limit, this.pageNumber);
 
-    this.getMesseges(this.limit, this.pageNumber);
+    }
+      
+    
+    if (this.pageNumber < this.length && num > 0){
+      this.pageNumber ++;
+      this.getMesseges(this.limit, this.pageNumber);
+    }
+
   }
 
   getMessegesLength(): void {

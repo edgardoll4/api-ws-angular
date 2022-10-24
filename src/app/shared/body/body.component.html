@@ -8,11 +8,11 @@
 <nav aria-label="...">
   <ul class="pagination pagination-circle">
     <li class="page-item">
-      <a class="page-link" tabindex="-1" aria-disabled="true" (click) = "addPage(-1)" >Previous</a>
+      <button class="page-link" tabindex="-1" aria-disabled="true" (click) = "addPage(-1)" >Previous</button>
     </li>
     <li *ngFor="let f of [].constructor(length); let i = index" class="page-item"><button type="button" class="page-link" value="{{i+1}}" id="{{i+1}}" (click) ="getMessegesPage(i+1)">{{i+1}}</button></li>
     <li class="page-item">
-      <a class="page-link" (click) = "addPage(1)">Next</a>
+      <button class="page-link" (click) = "addPage(1)">Next</button>
     </li>
   </ul>
 </nav>
