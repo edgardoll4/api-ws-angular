@@ -14,12 +14,12 @@ export class ApiWsService {
 
   ) { }
 
-  private url = `https://api-nest2.herokuapp.com/api/chat/list-messages/`;
+  private url = `https://api-nest2.herokuapp.com/api/chat/`;
 
-  getMessegesLength(): Observable<Messege[]> {
+  getMessegesLength(): Observable<number> {
 
     // const url = `http://localhost:3000/api/messeges`;
-    const length = this.http.get<Messege[]>(this.url);
+    const length = this.http.get<number>(this.url+'length-messages/');
     return length;
 
   }
@@ -31,7 +31,7 @@ export class ApiWsService {
     const offset =(page - 1) * limit;
     console.log('limit, page, offset', limit, page, offset);
     // const url = `http://localhost:3000/api/messeges`;
-    const urlExten = this.url+'?limit='+limit+'&offset='+offset;
+    const urlExten = this.url+'list-messages/?limit='+limit+'&offset='+offset;
     const resp = this.http.get<Messege[]>(urlExten);
     console.log('Meseges', resp);
     return resp;

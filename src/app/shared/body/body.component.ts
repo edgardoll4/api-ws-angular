@@ -61,7 +61,7 @@ export class BodyComponent implements OnInit {
       this.pageNumber --;
       this.getMesseges(this.limit, this.pageNumber);
     }
-        
+
     if (this.pageNumber < this.length && num > 0){
       this.pageNumber ++;
       this.getMesseges(this.limit, this.pageNumber);
@@ -80,8 +80,8 @@ export class BodyComponent implements OnInit {
   getMessegesLength(): void {
     console.log('getMessegesLength()');
     this.apiWsMeseege.getMessegesLength()
-      .subscribe((resp: Messege[]) => {
-        this.length = Math.trunc( resp.length / this.limit ) + 1;
+      .subscribe((resp: number) => {
+        this.length = Math.trunc( resp / this.limit ) + 1;
         if (this.pageNumber > this.length ) {
           this.pageNumber = this.length;
           this.getMesseges(this.limit, this.pageNumber);
