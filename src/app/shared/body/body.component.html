@@ -14,11 +14,10 @@
     <li class="page-item">
       <button class="page-link" (click) = "addPage(1)">Next</button>
     </li>
-    <li class="page-item">
-      <select class="form-select" aria-label="Default select example" (change)="selectOptionLimit(200)">
-        <option selected>Open this select menu</option>
-        <option *ngFor="let f of pageOption " value="{{f}}">{{f}}</option>
-      </select>
+  </ul>
+  <ul class="pagination pagination-circle">
+    <li class="page-item " *ngFor="let f of pageOption " > 
+      <button class="page-link btn-outline-primary" (click) = "selectOptionLimit(f)">{{f}}</button>
     </li>
   </ul>
 </nav>

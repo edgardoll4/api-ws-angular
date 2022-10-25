@@ -44,7 +44,7 @@ export class BodyComponent implements OnInit {
     this.getMessegesLength();
   }
 
-  limit: number = 50;
+  limit: number = 10;
   pageNumber: number = 1;
   pageOption: number[] = [10, 20, 50, 100];
   length: number = 1;
@@ -73,8 +73,10 @@ export class BodyComponent implements OnInit {
   }
 
 
-  selectOptionLimit(number: number): void {
-    this.limit = number;
+  selectOptionLimit(limit: number): void {
+    // let valor = document.getElementById('optionLimit') || 10;
+    this.limit = limit; 
+    this.getMessegesLength();
     this.getMesseges(this.limit, this.pageNumber);
   }
 
