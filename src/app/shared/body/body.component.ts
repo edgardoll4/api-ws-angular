@@ -57,26 +57,23 @@ export class BodyComponent implements OnInit {
   }
 
   addPage(num:number){
-    
     if (this.pageNumber >1 && num < 0){
       this.pageNumber --;
       this.getMesseges(this.limit, this.pageNumber);
-
     }
-      
-    
+        
     if (this.pageNumber < this.length && num > 0){
       this.pageNumber ++;
       this.getMesseges(this.limit, this.pageNumber);
     }
-
   }
 
 
   selectOptionLimit(limit: number): void {
     // let valor = document.getElementById('optionLimit') || 10;
-    this.limit = limit; 
+    this.limit = limit;
     this.getMessegesLength();
+    // if (this.pageNumber > this.length ) this.pageNumber = this.length;
     this.getMesseges(this.limit, this.pageNumber);
   }
 
@@ -85,6 +82,10 @@ export class BodyComponent implements OnInit {
     this.apiWsMeseege.getMessegesLength()
       .subscribe((resp: Messege[]) => {
         this.length = Math.trunc( resp.length / this.limit ) + 1;
+        if (this.pageNumber > this.length ) {
+          this.pageNumber = this.length;
+          this.getMesseges(this.limit, this.pageNumber);
+        }
         console.log('Meseeges', this.length);
       })
   }
