@@ -14,7 +14,7 @@ export class ApiWsService {
 
   ) { }
 
-  private url = `https://api-nest2.herokuapp.com/api/chat/`;
+  private url = `https://demo-api-whatsapp.herokuapp.com/api/chat/`;
 
   getMessegesLength(): Observable<number> {
 
