@@ -42,12 +42,18 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
     this.getMesseges(this.limit, this.pageNumber);
     this.getMessegesLength();
+    // ################ Probando quitar el primer caracter de un string ################
+    let texto: string = "/Hola, soy un bot de prueba";
+    texto = (texto.startsWith('/')) ? texto.substring(1) : texto;
+    console.log(texto);
+    // ############################# Fin de prueba ####################################
   }
 
   limit: number = 10;
   pageNumber: number = 1;
   pageOption: number[] = [10, 20, 50, 100];
   length: number = 1;
+
 
 
   getMessegesPage(page: number): void {
