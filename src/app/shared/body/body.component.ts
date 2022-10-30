@@ -74,6 +74,12 @@ export class BodyComponent implements OnInit {
     }
   }
 
+  // mostrarLog(): any {
+  //   console.log('mostrarLog()', document.getElementById('valorSelect').value);
+  //   console.log('limit', this.limit);
+  //   console.log('pageNumber', this.pageNumber);
+  //   console.log('length', this.length);
+  // }
 
   selectOptionLimit(limit: number): void {
     // let valor = document.getElementById('optionLimit') || 10;
@@ -92,7 +98,7 @@ export class BodyComponent implements OnInit {
           this.pageNumber = this.length;
           this.getMesseges(this.limit, this.pageNumber);
         }
-        console.log('Meseeges', this.length);
+        console.log('Paginator: ', this.length);
       })
   }
 
@@ -101,7 +107,7 @@ export class BodyComponent implements OnInit {
     this.apiWsMeseege.getMesseges(this.limit, this.pageNumber)
       .subscribe((resp: Messege[]) => {
         this.meseeges = resp;
-        console.log('Meseeges', this.meseeges.length);
+        console.log('Meseeges Length: ', this.meseeges.length);
       })
   }
 
