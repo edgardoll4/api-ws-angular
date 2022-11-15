@@ -4,40 +4,42 @@
     <option *ngFor ="let x of pageOption " [ngValue]="x" >{{x}}</option>
   </select> -->
 
-  <div class=" table-responsive">
+  <div class="table-responsive">
     <h1 class="text text-primary text-center ">
       Messajes
     </h1>
     <h4 class="text text-primary text-center">
       Lista de mensajes de la API de WhatsApp
     </h4>
-    <table class="table table-striped table-hover border-primary">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Id Mensaje</th>
-          <th scope="col">Ususario</th>
-          <th scope="col">Mensaje</th>
-          <th scope="col">Numero</th>
-          <th scope="col">Fecha y hora</th>
-          <th scope="col">Payload</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let meseege of meseeges; let i = index">
-          <th scope="row">{{i + (((pageNumber -1) * limit) + 1)}}</th>
-          <td>{{meseege.id}}</td>
-          <td>{{meseege.name}}</td>
-          <td>{{meseege.text}}</td>
-          <td>{{meseege.from}}</td>
-          <td>{{meseege.timestamp}}</td>
-          <td>{{meseege.payload}}</td>
-        </tr>
+    <div >
+      <table class=" table table-striped table-hover border-primary">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id Mensaje</th>
+            <th scope="col">Ususario</th>
+            <th scope="col">Mensaje</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Fecha y hora</th>
+            <th scope="col">Payload</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meseege of meseeges; let i = index">
+            <th scope="row">{{i + (((pageNumber -1) * limit) + 1)}}</th>
+            <td>{{meseege.id}}</td>
+            <td>{{meseege.name}}</td>
+            <td>{{meseege.text}}</td>
+            <td>{{meseege.from}}</td>
+            <td>{{meseege.timestamp}}</td>
+            <td>{{meseege.payload}}</td>
+          </tr>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class=" content pt-1 m-1">
+  <div class="content pt-1 m-1">
     <nav aria-label="...">
       <div class="input-group ">
         <ul class="pagination pagination-circle">
